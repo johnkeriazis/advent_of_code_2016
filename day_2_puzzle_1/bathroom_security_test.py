@@ -1,42 +1,52 @@
 import unittest
 
-from day_2_puzzle_1.bathroom_security import bathroom_code_generator
+from day_2_puzzle_1.bathroom_security import security_code_generator
 
 
-class BathroomSecurityTest(unittest.TestCase):
+class SecurityCodeGeneratorTest(unittest.TestCase):
+
+    def assertSecurityCode(self, input_rows, expected):
+        actual = security_code_generator(input_rows)
+        self.assertEqual(str(expected), actual)
 
     def test_when_start_at_five_and_no_inputs(self):
-        actual = bathroom_code_generator([])
-        self.assertEqual(5, actual)
+        self.assertSecurityCode([[]], 5)
 
     def test_when_start_at_five_and_and_move_up(self):
-        actual = bathroom_code_generator(['U'])
-        self.assertEqual(2, actual)
+        self.assertSecurityCode(['U'], 2)
 
     def test_when_start_at_five_and_and_move_up_twice(self):
-        actual = bathroom_code_generator(['U', 'U'])
-        self.assertEqual(2, actual)
+        self.assertSecurityCode(['UU'], 2)
 
     def test_when_start_at_five_and_and_move_down(self):
-        actual = bathroom_code_generator(['D'])
-        self.assertEqual(8, actual)
+        self.assertSecurityCode(['D'], 8)
 
     def test_when_start_at_five_and_and_move_down_twice(self):
-        actual = bathroom_code_generator(['D', 'D'])
-        self.assertEqual(8, actual)
+        self.assertSecurityCode(['DD'], 8)
 
     def test_when_start_at_five_and_and_move_left(self):
-        actual = bathroom_code_generator(['L'])
-        self.assertEqual(4, actual)
+        self.assertSecurityCode(['L'], 4)
 
     def test_when_start_at_five_and_and_move_left_2x(self):
-        actual = bathroom_code_generator(['L', 'L'])
-        self.assertEqual(4, actual)
+        self.assertSecurityCode(['LL'], 4)
 
     def test_when_start_at_five_and_and_move_right(self):
-        actual = bathroom_code_generator(['R'])
-        self.assertEqual(6, actual)
+        self.assertSecurityCode(['R'], 6)
 
     def test_when_start_at_five_and_and_move_right_2x(self):
-        actual = bathroom_code_generator(['R', 'R'])
-        self.assertEqual(6, actual)
+        self.assertSecurityCode(['RR'], 6)
+
+    def test_when_start_at_five_and_and_move_right_and_down(self):
+        self.assertSecurityCode(['RD'], 9)
+
+    def test_2d_move_right_then_down(self):
+        self.assertSecurityCode(['R', 'D'], '69')
+
+    def test_example_one(self):
+        input_rows = [
+            'ULL',
+            'RRDDD',
+            'LURDL',
+            'UUUUD'
+        ]
+        self.assertSecurityCode(input_rows, '1985')
