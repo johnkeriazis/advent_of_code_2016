@@ -26,7 +26,7 @@ def security_code_generator(input_rows):
 
 
 input_rows = []
-with open('d0201.txt') as f:
+with open('../data/d0201.txt') as f:
     for line in f.readlines():
         input_rows.append(line)
 
