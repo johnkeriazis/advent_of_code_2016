@@ -51,6 +51,12 @@ def right(row, col):
         col += 1
     return col
 
+input_rows = []
+with open('d0202.txt') as f:
+    for line in f.readlines():
+        input_rows.append(line)
+
+print(advanced_security_code_generator(input_rows))
 
 
 

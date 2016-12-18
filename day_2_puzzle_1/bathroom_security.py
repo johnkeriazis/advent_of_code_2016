@@ -30,4 +30,4 @@ with open('d0201.txt') as f:
     for line in f.readlines():
         input_rows.append(line)
 
-print security_code_generator(input_rows)
+print(security_code_generator(input_rows))
