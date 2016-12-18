@@ -52,7 +52,7 @@ def right(row, col):
     return col
 
 input_rows = []
-with open('d0202.txt') as f:
+with open('../data/d0201.txt') as f:
     for line in f.readlines():
         input_rows.append(line)
 
