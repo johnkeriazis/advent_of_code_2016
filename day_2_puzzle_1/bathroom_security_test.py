@@ -12,3 +12,31 @@ class BathroomSecurityTest(unittest.TestCase):
     def test_when_start_at_five_and_and_move_up(self):
         actual = bathroom_code_generator(['U'])
         self.assertEqual(2, actual)
+
+    def test_when_start_at_five_and_and_move_up_twice(self):
+        actual = bathroom_code_generator(['U', 'U'])
+        self.assertEqual(2, actual)
+
+    def test_when_start_at_five_and_and_move_down(self):
+        actual = bathroom_code_generator(['D'])
+        self.assertEqual(8, actual)
+
+    def test_when_start_at_five_and_and_move_down_twice(self):
+        actual = bathroom_code_generator(['D', 'D'])
+        self.assertEqual(8, actual)
+
+    def test_when_start_at_five_and_and_move_left(self):
+        actual = bathroom_code_generator(['L'])
+        self.assertEqual(4, actual)
+
+    def test_when_start_at_five_and_and_move_left_2x(self):
+        actual = bathroom_code_generator(['L', 'L'])
+        self.assertEqual(4, actual)
+
+    def test_when_start_at_five_and_and_move_right(self):
+        actual = bathroom_code_generator(['R'])
+        self.assertEqual(6, actual)
+
+    def test_when_start_at_five_and_and_move_right_2x(self):
+        actual = bathroom_code_generator(['R', 'R'])
+        self.assertEqual(6, actual)
